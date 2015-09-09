@@ -1,0 +1,17 @@
+Include this on the page:
+
+  shell:SystemTray.IsVisible="True"
+  shell:SystemTray.BackgroundColor="{StaticResource MuzzleyRedColor}"
+  shell:SystemTray.ForegroundColor="White"
+  shell:SystemTray.Opacity="100"
+
+
+And in app.xaml.cs include this in initializer because of WXGA resolutions (a line appears):
+
+  To fix this issue for the whole application (including on page transitinos)
+  private void InitializePhoneApplication()
+  {
+      //...
+      RootFrame.Margin = new Thickness(0, -1, 0, 0);
+      //...
+  }
