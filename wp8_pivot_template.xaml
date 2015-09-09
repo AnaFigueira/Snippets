@@ -1,0 +1,33 @@
+xmlns:primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
+
+<phone:Pivot Name="myPivot" VerticalAlignment="Stretch" Title="myPivot">
+   <phone:Pivot.Template>
+       <ControlTemplate TargetType="phone:Pivot">
+           <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                   VerticalAlignment="{TemplateBinding VerticalAlignment}">
+             <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+              </Grid.RowDefinitions>
+
+              <ContentPresenter ContentTemplate="{TemplateBinding TitleTemplate}"
+                Content="{TemplateBinding Title}" Margin="10,0,0,0"/>
+
+              <primitives:PivotHeadersControl x:Name="HeadersListElement" Grid.Row="1" Margin="0,5,0,5"/>
+
+              <ItemsPresenter x:Name="PivotItemPresenter" Margin="{TemplateBinding Padding}" Grid.Row="2"/>
+          </Grid>
+       </ControlTemplate>
+    </phone:Pivot.Template>
+    <phone:Pivot.HeaderTemplate>
+        <DataTemplate>
+           <Grid Height="30">
+             <TextBlock Text="{Binding}" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Margin="0,0,10,0"/>
+           </Grid>
+        </DataTemplate>
+    </phone:Pivot.HeaderTemplate>
+    <phone:PivotItem Margin="0">
+
+    </phone:PivotItem>
+ </phone:Pivot>
